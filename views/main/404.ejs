@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Job Portal</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f8f9fa; }
+        .navbar { background: #2c3e50; padding: 1rem; color: white; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; }
+        .nav-logo { color: white; text-decoration: none; font-weight: bold; }
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-links a { color: white; text-decoration: none; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; text-align: center; }
+        .error-page h1 { font-size: 4rem; color: #e74c3c; }
+        .error-page h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .btn { display: inline-block; padding: 1rem 2rem; background: #3498db; color: white; text-decoration: none; border-radius: 5px; }
+        .footer { text-align: center; padding: 2rem; background: #2c3e50; color: white; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">JobPortal</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/jobs">Jobs</a>
+                <a href="/auth/login">Login</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <div class="error-page">
+            <h1>404</h1>
+            <h2>Page Not Found</h2>
+            <p>The page you are looking for doesn't exist or has been moved.</p>
+            <a href="/" class="btn">Go Home</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Job Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

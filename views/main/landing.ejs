@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal - Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('../partials/navbar', {user, activePage: 'home'}) %>
+    
+    <main class="container">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Find Your Dream Job</h1>
+                <p>Connect with top employers and discover opportunities that match your skills and aspirations</p>
+                <div class="hero-buttons">
+                    <a href="/jobs" class="btn btn-primary">Browse Jobs</a>
+                    <a href="/auth/register" class="btn btn-secondary">Post a Job</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="features-section">
+            <h2>Why Choose Our Platform?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Quick Hiring</h3>
+                    <p>Connect with employers and get hired faster with our streamlined process</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Smart Search</h3>
+                    <p>Find jobs that perfectly match your skills and experience level</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Instant Alerts</h3>
+                    <p>Get notified immediately when new jobs matching your criteria are posted</p>
+                </div>
+            </div>
+        </section>
+
+        <% if (lastVisit) { %>
+            <div class="last-visit">
+                <p>Your last visit: <%= lastVisit %></p>
+            </div>
+        <% } %>
+    </main>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

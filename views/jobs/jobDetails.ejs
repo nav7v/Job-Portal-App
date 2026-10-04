@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= job.jobDesignation %> - Job Portal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('../partials/navbar', {user, activePage: 'jobs'}) %>
+    
+    <main class="container">
+        <div class="job-detail-container">
+            <div class="job-detail-header">
+                <h1><%= job.jobDesignation %></h1>
+                <div class="company-info">
+                    <h2><%= job.companyName %></h2>
+                    <span class="location">📍 <%= job.jobLocation %></span>
+                </div>
+            </div>
+
+            <div class="job-detail-content">
+                <div class="job-main-info">
+                    <div class="info-card">
+                        <h3>Job Details</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <strong>Salary:</strong>
+                                <span>$<%= job.salary %></span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Category:</strong>
+                                <span><%= job.jobCategory %></span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Openings:</strong>
+                                <span><%= job.numberOfOpenings %> positions</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Apply By:</strong>
+                                <span><%= new Date(job.applyBy).toLocaleDateString() %></span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Posted:</strong>
+                                <span><%= new Date(job.jobPosted).toLocaleDateString() %></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills-card">
+                        <h3>Required Skills</h3>
+                        <div class="skills-list">
+                            <% job.skillsRequired.forEach(skill => { %>
+                                <span class="skill-tag large"><%= skill %></span>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-actions">
+                    <a href="/jobs/<%= job.id %>/apply" class="btn btn-primary btn-large">Apply Now</a>
+                    
+                    <% if (user && user.id === job.recruiterId) { %>
+                        <div class="recruiter-actions">
+                            <a href="/jobs/<%= job.id %>/update" class="btn btn-secondary">Edit Job</a>
+                            <form action="/jobs/<%= job.id %>/delete" method="POST" class="delete-form">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this job?')">Delete Job</button>
+                            </form>
+                            <a href="/jobs/<%= job.id %>/applicants" class="btn btn-info">View Applicants</a>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

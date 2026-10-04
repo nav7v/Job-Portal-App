@@ -1,0 +1,30 @@
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">
+            <span>🎯</span> JobPortal
+        </a>
+
+        <div class="nav-search">
+            <form action="/jobs" method="GET" class="search-form">
+                <input type="text" name="search" placeholder="Search jobs..." value="<%= search || '' %>">
+                <button type="submit" class="search-btn">🔍</button>
+            </form>
+        </div>
+
+        <div class="nav-menu">
+            <a href="/" class="nav-link <%= activePage === 'home' ? 'active' : '' %>">Home</a>
+            <a href="/jobs" class="nav-link <%= activePage === 'jobs' ? 'active' : '' %>">Jobs</a>
+            
+            <% if (user) { %>
+                <a href="/jobs/create" class="nav-link <%= activePage === 'create' ? 'active' : '' %>">Post Job</a>
+                <span class="nav-welcome">Welcome, <%= user.name %></span>
+                <form action="/auth/logout" method="POST" class="nav-form">
+                    <button type="submit" class="nav-link btn-link">Logout</button>
+                </form>
+            <% } else { %>
+                <a href="/auth/login" class="nav-link <%= activePage === 'login' ? 'active' : '' %>">Login</a>
+                <a href="/auth/register" class="nav-link <%= activePage === 'register' ? 'active' : '' %>">Register</a>
+            <% } %>
+        </div>
+    </div>
+</nav>

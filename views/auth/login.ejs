@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Job Portal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('../partials/navbar', {user, activePage: 'login'}) %>
+    
+    <main class="container">
+        <div class="auth-container">
+            <div class="auth-form">
+                <h2>Login to Your Account</h2>
+                
+                <% if (error) { %>
+                    <div class="alert alert-error">
+                        <%= error %>
+                    </div>
+                <% } %>
+
+                <form action="/auth/login" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                </form>
+
+                <div class="auth-links">
+                    <p>Don't have an account? <a href="/auth/register">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>
